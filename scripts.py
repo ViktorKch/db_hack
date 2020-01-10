@@ -63,6 +63,6 @@ if __name__ == '__main__':
             create_commendation(args.name, args.subject)
             print(f'Добавлена похвала по предмету {args.subject}')
 
-    except Schoolkid.DoesNotExist:
+    except (Schoolkid.DoesNotExist, Schoolkid.MultipleObjectsReturned):
         print('Ученик не найден или найдено сразу несколько учеников')
         exit(0)
